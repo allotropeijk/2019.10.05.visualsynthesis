@@ -16,8 +16,8 @@ namespace Klak.VJUI
 
         [System.Serializable] public class ButtonEvent : UnityEvent {} 
 
-        [SerializeField] ButtonEvent _onButtonDown = new ButtonEvent();
-        [SerializeField] ButtonEvent _onButtonUp = new ButtonEvent();
+        [SerializeField] protected ButtonEvent _onButtonDown = new ButtonEvent();
+        [SerializeField] protected ButtonEvent _onButtonUp = new ButtonEvent();
 
         public ButtonEvent onButtonDown {
             get { return _onButtonDown; }

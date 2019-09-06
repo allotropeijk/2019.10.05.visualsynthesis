@@ -34,6 +34,14 @@ public class MidiButton : Button
         while(queuedStates.TryDequeue(out var state))
         {
             DoStateTransition(state, true);
+            if (state == SelectionState.Pressed)
+            {
+                _onButtonDown.Invoke();
+            }
+            else
+            {
+                _onButtonUp.Invoke();
+            }
         }
     }
 }

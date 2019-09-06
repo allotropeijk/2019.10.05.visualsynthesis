@@ -10,6 +10,7 @@ public class MidiKnob : Knob
     [SerializeField]
     private int knobNumber = 0;
 
+    private bool shouldUpdate = false;
     private float lastReportedValue = 0.5f;
 
     protected override void Start()
@@ -20,13 +21,16 @@ public class MidiKnob : Knob
     private void OnKnobUpdate(MidiChannel channel, int knobNumber, float value)
     {
         lastReportedValue = value;
+        shouldUpdate = true;
     }
 
     private void Update()
     {
-        if (lastReportedValue != value)
+        if (shouldUpdate &&
+            lastReportedValue != value)
         {
             Set(lastReportedValue, true);
+            shouldUpdate = false;
         }
     }
 }
