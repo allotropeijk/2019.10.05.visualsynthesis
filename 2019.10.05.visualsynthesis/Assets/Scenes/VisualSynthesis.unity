@@ -248,7 +248,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Midi Knob
+  m_Text: Percentage Knob
 --- !u!222 &67072078
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -288,11 +288,11 @@ RectTransform:
   - {fileID: 562911770}
   - {fileID: 1839516988}
   m_Father: {fileID: 1895834029}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 50, y: 0}
+  m_AnchoredPosition: {x: 50, y: 100}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &187234371
@@ -338,7 +338,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1475589075}
-        m_MethodName: ToggleFlipped
+        m_MethodName: ToggleEnabled
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -503,7 +503,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 11.55, z: 2.11}
+  m_LocalPosition: {x: 0, y: 12.74, z: 2.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -967,7 +967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0058932d75737184db1eec574dda3cce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grayscaleMaterial: {fileID: 2100000, guid: f7d8c09079518c74b92f841a2c3b8760, type: 2}
+  grayscaleMaterial: {fileID: 2100000, guid: ec379885c9b4f5b4796ad88936a4af1c, type: 2}
 --- !u!1 &1693951788
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,7 +1070,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Midi Toggle
+  m_Text: Enabled Toggle
 --- !u!222 &1839516990
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1169,8 +1169,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1962822972}
   - {fileID: 187234370}
+  - {fileID: 1962822972}
   - {fileID: 1195790097}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -1212,11 +1212,11 @@ RectTransform:
   m_Children:
   - {fileID: 1996029532}
   m_Father: {fileID: 1895834029}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 50, y: 100}
+  m_AnchoredPosition: {x: 50, y: 0}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1962822973
@@ -1260,7 +1260,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1475589075}
-        m_MethodName: ToggleEnabled
+        m_MethodName: ToggleFlipped
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1386,7 +1386,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Midi Button
+  m_Text: Flip Button
 --- !u!222 &1996029534
 CanvasRenderer:
   m_ObjectHideFlags: 0
