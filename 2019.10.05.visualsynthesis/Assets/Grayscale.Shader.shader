@@ -3,8 +3,8 @@
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+		_Perc("Percentage", Float) = 1.0
 		_Enabled ("Enabled", Float) = 1.0
-		_Perc ("Percentage", Float) = 1.0
 		_Flip ("Flip", Float) = 1.0
     }
     SubShader
@@ -28,8 +28,8 @@
 
             struct v2f
             {
-                float2 uv : TEXCOORD0;
-                float4 vertex : SV_POSITION;
+				float4 vertex : SV_POSITION; // unused
+                float2 uv : TEXCOORD0; // x,y values for sampling a texture
             };
 
             sampler2D _MainTex;
@@ -46,17 +46,24 @@
                 return o;
             }
 
-			float4 RGBToGray(float4 value)
+			// Takes in a rgba pixel value and returns a gray pixel value
+			float4 RGBToGray(float4 rgba)
 			{
-				float gray = ((0.3 * value.r) + (0.59 * value.g) + (0.11 * value.b));
-				return float4(gray, gray, gray, value.a);
+				// Standard conversion of RGB to Gray
+				float gray = ((0.3 * rgba.r) + (0.59 * rgba.g) + (0.11 * rgba.b));
+
+				// We keep the existing alpha value (transparency)
+				return float4(gray, gray, gray, rgba.a);
 			}
 
+			// fixed4 - 4 float values, RGB + alpha
             fixed4 frag (v2f i) : SV_Target
             {
+				//// Let's check if we want to enable the shader
 				if (_Enabled < 0.5)
 				{
-					// Default texture color
+					// Return the original texture pixel
+					// Function below samples the texture (_MainTex) at the input (x, y) position
 					return tex2D(_MainTex, i.uv);
 				}
 
@@ -66,9 +73,14 @@
 					i.uv.x = (1.0 - i.uv.x);
 				}
 
-				float4 rgb = tex2D(_MainTex, i.uv);
-				float4 gray = RGBToGray(rgb);
-                return (_Perc * gray) + ((1.0 - _Perc) * rgb);
+				// Sample a pixel from the texture (_MainTex) at the input (x, y) position
+				// tex2D(texture, (x,y)) - Unity helper function that gets a pixel from a texture
+				float4 rgba = tex2D(_MainTex, i.uv);
+
+				// Convert the rgba pixel to a gray pixel
+				float4 gray = RGBToGray(rgba);
+
+                return (_Perc * gray) + ((1.0 - _Perc) * rgba);
             }
             ENDCG
         }
