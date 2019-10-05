@@ -61,8 +61,8 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _Enable: 1
-    - _Enabled: 0
-    - _Flip: 0
+    - _Enabled: 1
+    - _Flip: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -70,7 +70,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Perc: 0.47244096
+    - _Perc: 0.74
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
