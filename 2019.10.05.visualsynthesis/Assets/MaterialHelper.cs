@@ -5,7 +5,7 @@ public class MaterialHelper : MonoBehaviour
     [SerializeField]
     private Material grayscaleMaterial;
 
-    private bool enable = true;
+    private bool enable = false;
     private float percentage = 1.0f;
     private bool flip = false;
 
